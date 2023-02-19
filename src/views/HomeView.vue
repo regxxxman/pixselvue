@@ -48,13 +48,14 @@ import bgImage2 from '@/assets/bg_site2.jpg'
         </div>
 
         <div class="flex justify-center pt-2">
-          <a
-            class="btn w-full text-center text-white bg-cyan-500/25 hover:bg-cyan-500/50 hover:scale-110 ease-out transition backdrop-blur-xl p-2 mr-1 rounded-xl"
+          <router-link
+            to="/login"
+            class="btn w-full text-center text-white bg-cyan-500/40 hover:bg-cyan-500/50 hover:scale-110 ease-out transition backdrop-blur-xl p-2 mr-1 rounded-xl"
           >
             Войти
-          </a>
+          </router-link>
           <a
-            class="btn w-full text-center text-cyan-500 bg-cyan-900/25 hover:bg-cyan-900/50 hover:scale-110 ease-out transition backdrop-blur-xl p-2 ml-1 rounded-xl"
+            class="btn w-full text-center text-cyan-500 bg-cyan-900/40 hover:bg-cyan-900/50 hover:scale-110 ease-out transition backdrop-blur-xl p-2 ml-1 rounded-xl"
           >
             Регистрация
           </a>

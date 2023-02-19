@@ -2,7 +2,7 @@
 import { onMounted } from 'vue'
 import { gsap } from 'gsap'
 
-onMounted(() => {
+let start = () => {
   const body = document.querySelector('body')
 
   body.addEventListener('mousemove', (event) => {
@@ -80,13 +80,22 @@ onMounted(() => {
     }
   }
 
-  mouseText(texts, 'text')
-  mouseText(h1, 'text')
+  // mouseText(texts, 'text')
+  // mouseText(h1, 'text')
 
   body.addEventListener('mouseout', (event) => {
     cursor.classList.add('hiddenCursor')
     aura.classList.add('hiddenCursor')
   })
+}
+
+onMounted(() => {
+  if ('ontouchstart' in document.documentElement == false) {
+    start()
+  } else {
+    cursor.classList.add('hidden')
+    aura.classList.add('hidden')
+  }
 })
 </script>
 
