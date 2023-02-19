@@ -1,6 +1,6 @@
 <template>
   <div
-    class="header fixed w-full p-3 bg-gray-500/25 backdrop-blur-xl rounded-b-2xl z-50"
+    class="header fixed w-full p-3 bg-zinc-900/25 backdrop-blur-xl rounded-b-2xl z-50"
   >
     <div class="flex">
       <div
@@ -16,15 +16,18 @@
           >
             <router-link to="/">Главная </router-link>
           </li>
-          <li class="lg:px-9 sm:px-3 px-1 hover:text-gray-300">
+          <li
+            :class="{ 'text-gray-300': path == '/about' }"
+            class="lg:px-9 sm:px-3 px-1 hover:text-gray-300"
+          >
             <router-link to="/about">О нас</router-link>
           </li>
           <li class="lg:px-9 sm:px-3 px-1 hover:text-gray-300">
-            <router-link to="/contact">Начать играть</router-link>
+            <router-link to="/play">Начать играть</router-link>
           </li>
         </ul>
       </div>
-      <div v-if="isLoggedIn" class="text-white flex m-auto">
+      <div v-if="isLoggedIn" class="text-white m-auto pr-3 sm:flex hidden">
         <router-link to="/profile">
           <a>{{ userEmail }}</a>
         </router-link>
@@ -42,7 +45,7 @@
           Регистрация</a
         >
       </div>
-      <div v-else class="flex">
+      <div v-else class="sm:flex hidden">
         <a
           @click="handleSingOut"
           class="btn text-cyan-500 bg-cyan-900/30 hover:bg-cyan-900/50 hover:scale-110 ease-out transition p-2 px-5 mx-1 rounded-xl"

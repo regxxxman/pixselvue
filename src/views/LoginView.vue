@@ -62,7 +62,7 @@ const auth = () => {
     style="background-size: 100% 100%"
     class="min-h-screen text-white"
   >
-    <form class="h-screen w-screen flex">
+    <form class="min-h-screen min-w-screen flex">
       <div class="flex flex-col m-auto">
         <div class="bg-gray-500/25 backdrop-blur-xl rounded-md pb-2">
           <h1 class="h-full pt-2 pb-3 text-center">

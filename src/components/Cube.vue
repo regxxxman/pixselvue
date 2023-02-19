@@ -72,8 +72,12 @@ import imgCube from '@/assets/dirt.jpg'
 export default {
   data() {
     return {
-      fov: window.innerWidth <= 700 ? 100 : 60
+      fov: window.innerWidth <= 700 ? 100 : 60,
+      positionBox: [{}, {}]
     }
+  },
+  props: {
+    type: 1
   },
   mounted() {
     const renderer = this.$refs.renderer
