@@ -24,7 +24,12 @@
           </li>
         </ul>
       </div>
-      <div class="sm:flex hidden">
+      <div v-if="isLoggedIn" class="text-white flex m-auto">
+        <router-link to="/profile">
+          <a>{{ userEmail }}</a>
+        </router-link>
+      </div>
+      <div v-if="!isLoggedIn" class="sm:flex hidden">
         <router-link
           class="btn text-white bg-cyan-500/30 hover:bg-cyan-500/50 hover:scale-110 ease-out transition p-2 px-5 mx-1 rounded-xl"
           to="/login"
@@ -37,7 +42,13 @@
           Регистрация</a
         >
       </div>
-
+      <div v-else class="flex">
+        <a
+          @click="handleSingOut"
+          class="btn text-cyan-500 bg-cyan-900/30 hover:bg-cyan-900/50 hover:scale-110 ease-out transition p-2 px-5 mx-1 rounded-xl"
+          >Выйти</a
+        >
+      </div>
       <a
         class="block sm:hidden btn animate-text bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 hover:scale-110 ease-out transition p-2 px-5 mx-1 rounded-xl"
       >
@@ -50,9 +61,31 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
-import { useRoute } from 'vue-router'
+import { computed, ref, onMounted } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
+import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth'
+
 // import router from '../router/index'
+
+const isLoggedIn = ref(false)
+let auth
+const userEmail = ref('')
+onMounted(() => {
+  auth = getAuth()
+  // console.log(auth.authStateSubscription.auth.currentUser.email)
+
+  onAuthStateChanged(auth, (user) => {
+    user ? (isLoggedIn.value = true) : (isLoggedIn.value = false)
+    userEmail.value = user.email
+    console.log(user)
+  })
+})
+
+const handleSingOut = () => {
+  signOut(auth).then(() => {
+    routeToMain()
+  })
+}
 </script>
 
 <script>
@@ -66,6 +99,11 @@ export default {
     $route() {
       this.path = this.$route.path
       // console.log(this.path)
+    }
+  },
+  methods: {
+    routeToMain() {
+      this.$route.push('/')
     }
   },
   mounted() {
