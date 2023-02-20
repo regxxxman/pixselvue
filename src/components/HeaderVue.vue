@@ -53,12 +53,18 @@
         >
       </div>
       <a
+        v-if="false"
         class="block sm:hidden btn animate-text bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 hover:scale-110 ease-out transition p-2 px-5 mx-1 rounded-xl"
       >
         <span class="material-symbols-outlined text-white align-middle">
           menu
         </span>
       </a>
+      <div
+        class="block sm:hidden btn animate-text bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 hover:scale-110 ease-out transition rounded-xl"
+      >
+        <HamburgerManuVue class="h-10 px-3 my-0.5" />
+      </div>
     </div>
   </div>
 </template>
@@ -67,6 +73,7 @@
 import { computed, ref, onMounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth'
+import HamburgerManuVue from '../components/HamburgerManu.vue'
 
 // import router from '../router/index'
 
@@ -114,11 +121,9 @@ export default {
     const defaultOffset = 200
     const className = '-translate-y-16'
     const header = document.querySelector('.header')
-
     const scrollPosition = () =>
       window.pageYOffset || document.documentElement.scrollTop
     const containHide = () => header.classList.contains(className)
-
     window.addEventListener('scroll', () => {
       if (
         scrollPosition() > lastScroll &&
@@ -131,10 +136,10 @@ export default {
         //scroll up
         header.classList.remove(className)
       }
-
       lastScroll = scrollPosition()
     })
-  }
+  },
+  components: { HamburgerManuVue }
 }
 </script>
 
