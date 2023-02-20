@@ -1,1 +1,0 @@
-import{o as a,c as s,a as t,b as e,n as c,u as n,F as o,_ as r,d as _}from"./index-c42a958b.js";const l=e("h1",{class:"pt-16"},"Профиль",-1),i=[l],f={__name:"ProfileView",setup(m){return(u,d)=>(a(),s(o,null,[t(r),e("div",{style:c([{background:`url(${n(_)})`},{"background-size":"100% 100%"}]),class:"min-h-screen text-white"},i,4)],64))}};export{f as default};
