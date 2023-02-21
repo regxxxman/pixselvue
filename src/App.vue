@@ -7,8 +7,10 @@ import FooterVue from './components/FooterVue.vue'
 
 <template>
   <HeaderVue />
-  <RouterView />
-  <FooterVue />
+  <div class="page min-h-screen">
+    <RouterView />
+    <FooterVue />
+  </div>
 </template>
 
 <style scoped></style>
