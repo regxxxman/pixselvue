@@ -42,7 +42,7 @@
           class="m-auto sm:text-base text-xl mx-1 sm:mx-3 text-white"
         >
           <router-link to="/profile">
-            <a>{{ userEmail }}</a>
+            {{ userNickname ? userNickname : userEmail }}
           </router-link>
         </div>
         <div
@@ -80,31 +80,44 @@
 </template>
 
 <script setup>
-import { computed, ref, onMounted } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
+import { ref, onMounted, watchEffect } from 'vue'
+import { firebase_app, firebase_database } from '@/firebase/'
 import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth'
-import HamburgerManuVue from '../components/HamburgerManu.vue'
+import { collection, onSnapshot } from 'firebase/firestore'
 
-// import router from '../router/index'
+import HamburgerManuVue from '../components/HamburgerManu.vue'
+import router from '@/router'
 
 const isLoggedIn = ref(false)
-let auth
-const userEmail = ref('')
-onMounted(() => {
-  auth = getAuth()
-  // console.log(auth.authStateSubscription.auth.currentUser.email)
+const userEmail = ref()
+const userNickname = ref()
+const auth = getAuth()
 
+watchEffect(() => {
+  isLoggedIn.value == true
+    ? onSnapshot(collection(firebase_database, 'users'), (querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          doc.data().uid == auth.currentUser.uid
+            ? (userNickname.value = doc.data().nickname)
+            : (userNickname.value = null)
+        })
+      })
+    : null
+})
+
+onMounted(async () => {
   onAuthStateChanged(auth, (user) => {
     user ? (isLoggedIn.value = true) : (isLoggedIn.value = false)
     user
       ? (userEmail.value = user.email) && console.log(user)
       : console.log('not logged in')
   })
+  console.log(isLoggedIn.value)
 })
 
 const handleSingOut = () => {
   signOut(auth).then(() => {
-    routeToMain()
+    router.push('/')
   })
 }
 </script>
