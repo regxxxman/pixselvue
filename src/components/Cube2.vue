@@ -1,5 +1,5 @@
 <template>
-  <div id="canvas_cube_background" class="overflow-hidden"></div>
+  <div id="canvas_cube_background" class="overflow-hidden w-full"></div>
 </template>
 
 <script>
@@ -9,15 +9,17 @@ import imgBot from '@/assets/blocks/ultimate solar bottom.png'
 import imgSide from '@/assets/blocks/ultimate solar side.png'
 
 export default {
-  methods: {
-    onWindowResize() {
-      camera.aspect = window.innerWidth / window.innerHeight
+  mounted() {
+    let onWindowResize = () => {
+      camera.aspect = document.body.clientWidth / document.body.clientHeight
+      console.log(document.body.clientWidth, ' ', document.body.clientHeight)
       camera.updateProjectionMatrix()
 
-      renderer.setSize(window.innerWidth, window.innerHeight)
+      renderer.setSize(document.body.clientWidth, document.body.clientHeight)
+
+      //   renderer.setSize(window.innerWidth - 20, window.innerHeight - 20)
     }
-  },
-  mounted() {
+
     const scene = new THREE.Scene()
     const camera = new THREE.PerspectiveCamera(
       75,
@@ -27,8 +29,11 @@ export default {
     )
 
     const renderer = new THREE.WebGLRenderer({ alpha: true })
-    renderer.setSize(window.innerWidth, window.innerHeight)
-    // document.body.appendChild( renderer.domElement );
+    // renderer.setSize(window.innerWidth, window.innerHeight)
+    renderer.setSize(document.body.clientWidth, document.body.clientHeight)
+
+    // document.body.appendChild(renderer.domElement)
+
     document
       .getElementById('canvas_cube_background')
       .appendChild(renderer.domElement)
@@ -98,7 +103,7 @@ export default {
     }
 
     animate()
-    window.addEventListener('resize', this.onWindowResize)
+    window.addEventListener('resize', onWindowResize)
   }
 }
 </script>

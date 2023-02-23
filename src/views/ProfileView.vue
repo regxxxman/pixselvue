@@ -65,12 +65,12 @@ let btnclick = () => {
   <div
     :style="{ background: `url(${bgImage})` }"
     style="background-size: 100% 100%"
-    class="min-h-screen w-full text-white text-center z-10"
+    class="min-h-screen text-white text-center z-10"
   >
     <!-- <Cube class="absolute" /> -->
     <Cube2 class="absolute" />
 
-    <div class="flex lg:flex-row flex-col justify-center pt-28">
+    <div class="flex w-fit m-auto lg:flex-row flex-col justify-center pt-28">
       <div
         class="flex flex-col bg-zinc-700/25 backdrop-blur-xl rounded-md mb-2 mx-0.5"
       >

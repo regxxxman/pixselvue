@@ -10,7 +10,9 @@ import Cube2Vue from '@/components/Cube2.vue'
     style="background-size: 100% 100%"
     class="min-h-screen text-white"
   >
-    <Cube2Vue />
+    <div>
+      <Cube2Vue class="absolute" />
+    </div>
     <h1 class="pt-16">О нас</h1>
   </div>
 </template>

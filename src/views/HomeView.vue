@@ -22,6 +22,7 @@ import bgImage2 from '@/assets/bg_site2.jpg'
 
 <template>
   <Cursor />
+  <Cube class="absolute" />
 
   <div
     :style="{ background: `url(${bgImage})` }"
@@ -29,7 +30,6 @@ import bgImage2 from '@/assets/bg_site2.jpg'
     class="flex flex-col min-h-screen"
   >
     <!-- <CanvasVue class=" absolute w-full" /> -->
-    <Cube class="absolute" />
 
     <div
       class="flex flex-col lg:flex-row mx-5 lg:space-x-4 pt-16 text-gray-200 my-auto justify-center"
