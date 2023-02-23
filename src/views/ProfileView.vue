@@ -18,8 +18,6 @@ import {
 import SkinView3dVue from '@/components/utils/SkinView3d.vue'
 import HeadDrawVue from '@/components/utils/HeadDraw.vue'
 
-import skinImg from '@/assets/skin/reg_skin2.png'
-
 const uid = ref()
 const auth = getAuth()
 
@@ -27,19 +25,17 @@ const nickname = ref()
 const nickname_input = ref()
 
 onMounted(async () => {
-  console.log('onMounted')
   uid.value = auth.currentUser.uid
 
   onSnapshot(collection(firebase_database, 'users'), (querySnapshot) => {
     querySnapshot.forEach((doc) => {
       if (doc.data().uid == uid.value) {
-        console.log(doc.id, ' hi ', doc.data())
+        // console.log(doc.id, ' hi ', doc.data())
+        console.log('id user:', doc.id, '\ndata user:', doc.data())
         nickname.value = doc.data().nickname
       }
     })
   })
-
-  // console.log(auth.currentUser.uid)
 })
 
 let btnclick = () => {
