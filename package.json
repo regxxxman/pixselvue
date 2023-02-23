@@ -11,10 +11,12 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
   },
   "dependencies": {
+    "@types/three": "^0.149.0",
     "firebase": "^9.17.1",
     "gsap": "^3.11.4",
     "pinia": "^2.0.28",
     "sass": "^1.58.3",
+    "skinview3d": "^2.2.1",
     "swiper": "^9.0.5",
     "three": "0.134",
     "troisjs": "^0.3.4",

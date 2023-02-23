@@ -15,6 +15,11 @@ import {
   doc
 } from 'firebase/firestore'
 
+import SkinView3dVue from '@/components/utils/SkinView3d.vue'
+import HeadDrawVue from '@/components/utils/HeadDraw.vue'
+
+import skinImg from '@/assets/skin/reg_skin2.png'
+
 const uid = ref()
 const auth = getAuth()
 
@@ -78,9 +83,9 @@ let btnclick = () => {
         {{ nickname ? 'Изменить' : 'Добавить' }}
       </a>
     </div>
+    <SkinView3dVue />
+    <HeadDrawVue />
   </div>
 </template>
-
-<script></script>
 
 <style></style>
