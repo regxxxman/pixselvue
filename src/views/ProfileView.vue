@@ -2,6 +2,7 @@
 import { onMounted, ref } from 'vue'
 
 import Cursor from '@/components/Cursor.vue'
+import Cube from '@/components/Cube.vue'
 import bgImage from '@/assets/bg.jpg'
 
 import { firebase_database } from '@/firebase'
@@ -17,6 +18,7 @@ import {
 
 import SkinView3dVue from '@/components/utils/SkinView3d.vue'
 import HeadDrawVue from '@/components/utils/HeadDraw.vue'
+import Cube2 from '@/components/Cube2.vue'
 
 const uid = ref()
 const auth = getAuth()
@@ -59,28 +61,54 @@ let btnclick = () => {
 
 <template>
   <Cursor />
+
   <div
     :style="{ background: `url(${bgImage})` }"
     style="background-size: 100% 100%"
-    class="min-h-screen w-full text-white text-center"
+    class="min-h-screen w-full text-white text-center z-10"
   >
-    <h1 class="pt-16">Профиль</h1>
-    <p>{{ nickname ? nickname : 'Добавте свой nickname' }}</p>
-    <div class="flex justify-center">
-      <input
-        class="m-3 p-1 rounded-lg indent-1 bg-gray-500/25 focus:outline focus:outline-2 focus:outline-white"
-        v-model="nickname_input"
-        type="text"
-      />
-      <a
-        class="btn m-2 p-2 text-center text-white bg-cyan-500/25 hover:bg-cyan-500/50 hover:scale-110 ease-out transition backdrop-blur-xl rounded-xl"
-        @click="btnclick"
+    <!-- <Cube class="absolute" /> -->
+    <Cube2 class="absolute" />
+
+    <div class="flex lg:flex-row flex-col justify-center pt-28">
+      <div
+        class="flex flex-col bg-zinc-700/25 backdrop-blur-xl rounded-md mb-2 mx-0.5"
       >
-        {{ nickname ? 'Изменить' : 'Добавить' }}
-      </a>
+        <SkinView3dVue class="m-auto" />
+
+        <div
+          class="btn m-2 p-2 text-center text-white bg-cyan-500/25 hover:bg-cyan-500/50 hover:scale-110 ease-out transition backdrop-blur-xl rounded-xl"
+        >
+          Загрузить
+        </div>
+      </div>
+
+      <div
+        class="flex flex-col bg-zinc-700/25 backdrop-blur-xl rounded-md p-3 mb-2 mx-0.5"
+      >
+        <h1>
+          <span
+            class="font-bold text-xl animate-text bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text text-transparent"
+            >{{ nickname ? nickname : 'Добавте свой nickname' }}</span
+          >
+          - Профиль
+        </h1>
+        <div class="flex justify-center">
+          <input
+            class="m-3 p-1 rounded-lg indent-1 bg-gray-500/25 focus:outline focus:outline-2 focus:outline-white"
+            v-model="nickname_input"
+            type="text"
+            placeholder="nickname"
+          />
+          <a
+            class="btn m-2 p-2 text-center text-white bg-cyan-500/25 hover:bg-cyan-500/50 hover:scale-110 ease-out transition rounded-xl"
+            @click="btnclick"
+          >
+            {{ nickname ? 'Изменить' : 'Добавить' }}
+          </a>
+        </div>
+      </div>
     </div>
-    <SkinView3dVue />
-    <HeadDrawVue />
   </div>
 </template>
 

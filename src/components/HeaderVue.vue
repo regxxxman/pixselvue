@@ -42,7 +42,12 @@
           class="m-auto sm:text-base text-xl mx-1 sm:mx-3 text-white"
         >
           <router-link to="/profile">
-            {{ userNickname ? userNickname : userEmail }}
+            <div class="flex">
+              <HeadDrawVue class="h-8 px-2" />
+              <p class="m-auto">
+                {{ userNickname ? userNickname : userEmail }}
+              </p>
+            </div>
           </router-link>
         </div>
         <div
@@ -55,10 +60,11 @@
           >
             <a>Войти</a>
           </router-link>
-          <a
+          <router-link
+            to="/login?q=register"
             class="btn text-cyan-500 bg-cyan-900/30 hover:bg-cyan-900/50 hover:scale-110 ease-out transition p-2 px-5 mx-1 rounded-xl"
           >
-            Регистрация</a
+            Регистрация</router-link
           >
         </div>
         <div v-else class="flex sm:p-0 pt-2">
@@ -87,6 +93,7 @@ import { collection, onSnapshot } from 'firebase/firestore'
 
 import HamburgerManuVue from '../components/HamburgerManu.vue'
 import router from '@/router'
+import HeadDrawVue from './utils/HeadDraw.vue'
 
 const isLoggedIn = ref(false)
 const userEmail = ref()
@@ -176,7 +183,7 @@ export default {
       window.innerWidth >= 640 ? (this.openMenu = false) : null
     })
   },
-  components: { HamburgerManuVue }
+  components: { HamburgerManuVue, HeadDrawVue }
 }
 </script>
 

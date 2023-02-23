@@ -1,5 +1,6 @@
 <script setup>
-import imgCube from '@/assets/dirt.jpg'
+import imgCube from '@/assets/blocks/birch_log.png'
+import imgCube_n from '@/assets/blocks/birch_log_n.png'
 </script>
 
 <template>
@@ -32,6 +33,7 @@ import imgCube from '@/assets/dirt.jpg'
       >
         <PhongMaterial>
           <Texture :src="imgCube" />
+          <Texture :src="imgCube_n" name="normalMap" />
         </PhongMaterial>
       </Box>
 
@@ -42,6 +44,7 @@ import imgCube from '@/assets/dirt.jpg'
       >
         <PhongMaterial>
           <Texture :src="imgCube" />
+          <Texture :src="imgCube_n" name="normalMap" />
         </PhongMaterial>
       </Box>
 
@@ -52,6 +55,7 @@ import imgCube from '@/assets/dirt.jpg'
       >
         <PhongMaterial>
           <Texture :src="imgCube" />
+          <Texture :src="imgCube_n" name="normalMap" />
         </PhongMaterial>
       </Box>
 
@@ -62,6 +66,7 @@ import imgCube from '@/assets/dirt.jpg'
       >
         <PhongMaterial>
           <Texture :src="imgCube" />
+          <Texture :src="imgCube_n" name="normalMap" />
         </PhongMaterial>
       </Box>
     </Scene>

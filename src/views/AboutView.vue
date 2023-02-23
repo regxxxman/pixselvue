@@ -1,6 +1,7 @@
 <script setup>
 import Cursor from '@/components/Cursor.vue'
 import bgImage from '@/assets/bg.jpg'
+import Cube2Vue from '@/components/Cube2.vue'
 </script>
 <template>
   <Cursor />
@@ -9,6 +10,7 @@ import bgImage from '@/assets/bg.jpg'
     style="background-size: 100% 100%"
     class="min-h-screen text-white"
   >
+    <Cube2Vue />
     <h1 class="pt-16">О нас</h1>
   </div>
 </template>

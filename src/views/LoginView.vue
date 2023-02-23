@@ -11,10 +11,10 @@ import {
 } from 'firebase/auth'
 import { useRouter } from 'vue-router'
 
-const email = ref('')
-const password = ref('')
+const email = ref(null)
+const password = ref(null)
 const router = useRouter()
-const errMessage = ref('')
+const errMessage = ref(null)
 
 const register = () => {
   createUserWithEmailAndPassword(getAuth(), email.value, password.value)
