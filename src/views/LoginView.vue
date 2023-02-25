@@ -69,8 +69,8 @@ const auth = () => {
             <h1 class="text-center">
               <span
                 class="font-bold text-xl animate-text bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text text-transparent"
-                >PixselCraft</span
-              >
+                >PixselCraft
+              </span>
               - войти
             </h1>
           </h1>

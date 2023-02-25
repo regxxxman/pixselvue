@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-zinc-900 text-white max-w-screen">
+  <div class="bg-zinc-900 text-white max-w-screen z-10 sticky">
     <h1 class="pt-2 pb-3 text-center">
       <h1 class="text-center">
         <span
