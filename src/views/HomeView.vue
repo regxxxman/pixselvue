@@ -6,14 +6,14 @@ import { onMounted } from 'vue'
 // import Swiper core and required modules
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper'
 
-// Import Swiper Vue.js components
-import { Swiper, SwiperSlide } from 'swiper/vue'
+// // Import Swiper Vue.js components
+// import { Swiper, SwiperSlide } from 'swiper/vue'
 
-// Import Swiper styles
-import 'swiper/css'
-import 'swiper/css/navigation'
-import 'swiper/css/pagination'
-import 'swiper/css/scrollbar'
+// // Import Swiper styles
+// import 'swiper/css'
+// import 'swiper/css/navigation'
+// import 'swiper/css/pagination'
+// import 'swiper/css/scrollbar'
 
 import bgImage from '@/assets/bg.jpg'
 import bgImage2 from '@/assets/bg_site2.jpg'
@@ -29,7 +29,7 @@ import Greetings from '@/components/Greetings.vue'
   <!-- <Cube class="absolute h-screen" /> -->
   <!-- <Cube2 class="absolute h-screen" /> -->
 
-  <swiper
+  <!-- <swiper
     :style="{ background: `url(${bgImage})` }"
     style="background-size: 100% 100%"
     class=""
@@ -43,13 +43,14 @@ import Greetings from '@/components/Greetings.vue'
     @slideChange="onSlideChange"
   >
     <swiper-slide>
-      <!-- <Cube class="absolute h-screen" /> -->
       <Greetings />
     </swiper-slide>
     <swiper-slide>
       <Greetings />
     </swiper-slide>
-  </swiper>
+  </swiper> -->
+
+  <Greetings />
 
   <!-- <Cube class="absolute" /> -->
 
@@ -58,11 +59,6 @@ import Greetings from '@/components/Greetings.vue'
 
 <script>
 export default {
-  components: {
-    Swiper,
-    SwiperSlide,
-    Greetings
-  },
   setup() {
     const onSwiper = (swiper) => {
       console.log(swiper)

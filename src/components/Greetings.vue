@@ -1,7 +1,11 @@
 <template>
   <!-- :style="{ background: `url(${bgImage})` }" -->
 
-  <div style="background-size: 100% 100%" class="flex flex-col min-h-screen">
+  <div
+    :style="{ background: `url(${bgImage})` }"
+    style="background-size: 100% 100%"
+    class="flex flex-col min-h-screen"
+  >
     <!-- <CanvasVue class=" absolute w-full" /> -->
 
     <div
