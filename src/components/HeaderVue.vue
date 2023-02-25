@@ -1,11 +1,15 @@
 <template>
   <div
-    :class="{ 'backdrop-blur-xl': !openMenu }"
+    :class="{
+      'backdrop-blur-xl-before': !openMenu
+      // 'h-16': !dropdawm,
+      // 'h-28': dropdawm
+    }"
     class="header fixed w-full bg-zinc-900/25 rounded-b-2xl z-20 h-16"
   >
     <div class="flex h-full">
       <div
-        class="flex-1 my-4 ml-3 hover:scale-105 transition ease-in-out sm:text-3xl text-2xl sm:py-0 py-1 pl-5 animate-text bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text text-transparent font-black"
+        class="flex-1 my-4 ml-3 z-30 hover:scale-105 transition ease-in-out sm:text-3xl text-2xl sm:py-0 py-1 pl-5 animate-text bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text text-transparent font-black"
       >
         <router-link to="/">PixselCraft</router-link>
       </div>
@@ -42,11 +46,28 @@
           class="m-auto sm:text-base text-xl mx-1 sm:mx-3 text-white"
         >
           <router-link to="/profile">
-            <div class="flex">
-              <HeadDrawVue class="h-8 px-2" />
-              <p class="m-auto">
-                {{ userNickname ? userNickname : userEmail }}
-              </p>
+            <div class="">
+              <div class="flex p-2 rounded bg-gray-200/10 dropdawn">
+                <HeadDrawVue class="h-6" />
+                <p class="ml-2 my-auto text-base">
+                  {{ userNickname ? userNickname : userEmail }}
+                </p>
+                <span class="material-symbols-outlined my-auto">
+                  expand_more
+                </span>
+              </div>
+              <div
+                :class="{
+                  // hidden: !dropdawm
+                }"
+                class="dropdawn-inner sm:absolute static rounded w-32 mt-1 bg-gray-200/10 px-3 py-1"
+              >
+                <ul class="mt-1">
+                  <li>профиль</li>
+                  <li>профиль</li>
+                  <li>профиль</li>
+                </ul>
+              </div>
             </div>
           </router-link>
         </div>
@@ -77,7 +98,7 @@
       </div>
       <div
         @click="handelMenuButton"
-        class="block my-3 mr-3 sm:hidden btn animate-text bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 hover:scale-110 ease-out transition rounded-xl"
+        class="block z-30 my-3 mr-3 sm:hidden btn animate-text bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 hover:scale-110 ease-out transition rounded-xl"
       >
         <HamburgerManuVue :class="{ active: openMenu }" class="h-8 px-3 my-1" />
       </div>
@@ -134,7 +155,8 @@ export default {
   data() {
     return {
       path: '/',
-      openMenu: false
+      openMenu: false,
+      dropdawm: true
     }
   },
   watch: {
@@ -191,4 +213,20 @@ export default {
 @import "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
 .header
     transition: .3s cubic-bezier(.75, -1.27,.3,2.33) transform
+.backdrop-blur-xl-before::before
+  content: ''
+  position: absolute
+  width: 100%
+  height: 100%
+  -webkit-backdrop-filter: blur(8px)
+  backdrop-filter: blur(8px)
+.dropdawn-inner
+  content: ''
+  position: absolute
+  -webkit-backdrop-filter: blur(8px)
+  backdrop-filter: blur(8px)
+// .dropdawn:hover ~ .dropdawn-list
+//   display: block
+// div.header, div.dropdawn-inner
+//   backdrop-filter: blur(8px)
 </style>

@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-  <canvas id="head"></canvas>
+  <canvas id="head" class="rounded"></canvas>
 </template>
 
 <script>

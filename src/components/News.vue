@@ -29,7 +29,7 @@ import bgImage2 from '@/assets/bg_site2.jpg'
         <div class="h-full flex flex-col">
           <h1 class="font-bold text-2xl">{{ item.header }}</h1>
           <div class="h-full">
-            <img src="@/assets/bg_news.png" alt="" class="rounded" />
+            <img src="@/assets/bg_news.png" alt="" class="rounded mt-1" />
             <p class="text-gray-300 pt-1 text-justify">
               {{ item.text }}
             </p>

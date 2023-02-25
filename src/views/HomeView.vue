@@ -26,6 +26,7 @@ import Greetings from '@/components/Greetings.vue'
 
 <template>
   <Cursor />
+
   <!-- <Cube class="absolute h-screen" /> -->
   <!-- <Cube2 class="absolute h-screen" /> -->
 
