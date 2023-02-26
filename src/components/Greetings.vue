@@ -9,9 +9,9 @@
     <!-- <CanvasVue class=" absolute w-full" /> -->
 
     <div
-      class="flex flex-col lg:px-0 px-5 lg:flex-row lg:space-x-4 pt-16 text-gray-200 my-auto justify-center"
+      class="flex overflow-hidden flex-col lg:px-0 px-5 lg:flex-row lg:space-x-4 pt-16 text-gray-200 my-auto justify-center"
     >
-      <div class="basis-1/4">
+      <div class="gsap1 -translate-x-96 opacity-0 basis-1/4">
         <div class="mt-5 p-3 bg-zinc-700/25 backdrop-blur-xl rounded-md">
           <h1 class="font-bold text-2xl">
             <span class="text-red-500">PixselCraft</span> - игровой проект
@@ -24,7 +24,7 @@
           </p>
         </div>
 
-        <div class="flex justify-center pt-2">
+        <div v-if="!isLoggedIn" class="flex justify-center pt-2">
           <router-link
             to="/login"
             class="btn w-full text-center text-white bg-cyan-400/40 hover:bg-cyan-500/50 hover:scale-110 ease-out transition backdrop-blur-xl p-2 mr-1 rounded-xl"
@@ -37,9 +37,20 @@
             Регистрация
           </a>
         </div>
+
+        <div v-else class="flex justify-center pt-2">
+          <router-link
+            to="/play"
+            class="btn w-full text-center text-white bg-cyan-400/40 hover:bg-cyan-500/50 hover:scale-110 ease-out transition backdrop-blur-xl p-2 rounded-xl"
+          >
+            Начать играть
+          </router-link>
+        </div>
       </div>
 
-      <div class="basis-1/2 my-auto flex flex-col space-y-3 pt-5 w-full">
+      <div
+        class="basis-1/2 gsap2 translate-x-96 opacity-0 my-auto flex flex-col space-y-3 pt-5 w-full"
+      >
         <h1
           class="font-bold text-2xl bg-zinc-700/25 backdrop-blur-xl rounded-md p-3"
         >
@@ -87,10 +98,26 @@
 </template>
 
 <script setup>
+import { ref, onMounted, watchEffect } from 'vue'
+import { firebase_app, firebase_database } from '@/firebase/'
+import { getAuth, onAuthStateChanged } from 'firebase/auth'
+
 import bgImage from '@/assets/bg.jpg'
+
+onMounted(async () => {
+  onAuthStateChanged(auth, (user) => {
+    user ? (isLoggedIn.value = true) : (isLoggedIn.value = false)
+  })
+  console.log(isLoggedIn.value)
+})
 </script>
 
 <script>
+import { gsap } from 'gsap'
+
+const auth = getAuth()
+const isLoggedIn = ref(false)
+
 export default {
   data() {
     return {
@@ -99,6 +126,24 @@ export default {
         { Name: 'DarkSide', online: 10, mods: ['zalupa', 'IndustrialCraft 2'] }
       ]
     }
+  },
+  watch: {
+    auth() {
+      console.log(auth)
+    }
+  },
+  mounted() {
+    console.log(auth)
+    gsap.to('.gsap1', {
+      delay: 1,
+      x: 0,
+      opacity: 100
+    })
+    gsap.to('.gsap2', {
+      delay: 1,
+      x: 0,
+      opacity: 100
+    })
   }
 }
 </script>
