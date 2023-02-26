@@ -42,34 +42,31 @@
           </ul>
         </div>
         <div
+          @click="dropdawm = !dropdawm"
           v-if="isLoggedIn"
           class="m-auto sm:text-base text-xl mx-1 sm:mx-3 text-white"
         >
-          <router-link to="/profile">
-            <div class="">
-              <div class="flex p-2 rounded bg-gray-200/10 dropdawn">
-                <HeadDrawVue class="h-6" />
-                <p class="ml-2 my-auto text-base">
-                  {{ userNickname ? userNickname : userEmail }}
-                </p>
-                <span class="material-symbols-outlined my-auto">
-                  expand_more
-                </span>
-              </div>
+          <div class="">
+            <div class="flex p-2 rounded bg-gray-200/10 dropdawn">
+              <HeadDrawVue class="h-6" />
+              <p class="ml-2 my-auto text-base">
+                {{ userNickname ? userNickname : userEmail }}
+              </p>
+              <span class="material-symbols-outlined my-auto">
+                expand_more
+              </span>
+            </div>
+            <Transition name="dropdawn-inner-animate">
               <div
-                :class="{
-                  // hidden: !dropdawm
-                }"
+                v-if="dropdawm"
                 class="dropdawn-inner sm:absolute static rounded w-32 mt-1 bg-gray-200/10 px-3 py-1"
               >
                 <ul class="mt-1">
-                  <li>профиль</li>
-                  <li>профиль</li>
-                  <li>профиль</li>
+                  <li><router-link to="/profile">профиль</router-link></li>
                 </ul>
               </div>
-            </div>
-          </router-link>
+            </Transition>
+          </div>
         </div>
         <div
           v-if="!isLoggedIn"
@@ -156,7 +153,7 @@ export default {
     return {
       path: '/',
       openMenu: false,
-      dropdawm: true
+      dropdawm: false
     }
   },
   watch: {
@@ -225,8 +222,17 @@ export default {
   position: absolute
   -webkit-backdrop-filter: blur(8px)
   backdrop-filter: blur(8px)
-// .dropdawn:hover ~ .dropdawn-list
-//   display: block
-// div.header, div.dropdawn-inner
-//   backdrop-filter: blur(8px)
+
+.dropdawn-inner-animate-enter-active
+  animation: bounce-in 0.5s
+.dropdawn-inner-animate-leave-active
+  animation: bounce-in 0.5s reverse
+
+@keyframes bounce-in
+  0%
+    transform: scale(0)
+  50%
+    transform: scale(1.25)
+  100%
+    transform: scale(1)
 </style>
