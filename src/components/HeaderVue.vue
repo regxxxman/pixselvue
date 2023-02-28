@@ -68,10 +68,7 @@
             </Transition>
           </div>
         </div>
-        <div
-          v-if="!isLoggedIn"
-          class="sm:flex pt-3 sm:pt-0 sm:text-base text-xl"
-        >
+        <div v-if="!isLoggedIn" class="flex pt-3 sm:pt-0 sm:text-base text-xl">
           <router-link
             class="btn text-white bg-cyan-500/30 hover:bg-cyan-500/50 hover:scale-110 ease-out transition p-2 px-5 mx-1 rounded-xl"
             to="/login"

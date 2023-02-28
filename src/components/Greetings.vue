@@ -11,12 +11,13 @@
     <div
       class="flex overflow-hidden flex-col lg:px-0 px-5 lg:flex-row lg:space-x-4 pt-16 text-gray-200 my-auto justify-center"
     >
-      <div class="gsap1 -translate-x-96 opacity-0 basis-1/4">
+      <div class="gsap1 -translate-x-96 opacity-0 basis-1/3">
         <div class="mt-5 p-3 bg-zinc-700/25 backdrop-blur-xl rounded-md">
           <h1 class="font-bold text-2xl">
             <span class="text-red-500">PixselCraft</span> - игровой проект
             Minecraft.
           </h1>
+          <!-- <img class="rounded" src="@/assets/bg_news.png" alt="" /> -->
           <p class="text-gray-300 pt-1">
             Каждый игрок ищет уютную атмосферу и интересный геймплей, отзывчивую
             модерацию и баланс на сервере. <br />
@@ -65,19 +66,16 @@
               <span class="text-red-500">{{ server.Name }}</span>
               {{ server.online }} из 100
             </p>
-            <div class="flex space-x-2">
-              <span
-                class="py-0.5 px-2 bg-zinc-700/25 backdrop-blur-xl rounded-xl hover:underline decoration-cyan-500"
+            <div
+              class="flex space-x-2 [&>*]:py-0.5 [&>*]:px-2 [&>*]:bg-zinc-700/25 [&>*]:backdrop-blur-xl [&>*]:rounded-xl [&>*]:decoration-cyan-500"
+            >
+              <span class="hover:underline"
                 ><a href="">{{ server.mods[0] }}</a></span
               >
-              <span
-                class="py-0.5 px-2 bg-zinc-700/25 backdrop-blur-xl rounded-xl hover:underline decoration-cyan-500"
+              <span class="hover:underline"
                 ><a href="">{{ server.mods[1] }}</a></span
               >
-              <span
-                class="py-0.5 px-2 bg-zinc-700/25 backdrop-blur-xl rounded-xl hover:underline decoration-cyan-500"
-                >...</span
-              >
+              <span class="hover:underline">...</span>
             </div>
           </div>
 
@@ -108,7 +106,7 @@ onMounted(async () => {
   onAuthStateChanged(auth, (user) => {
     user ? (isLoggedIn.value = true) : (isLoggedIn.value = false)
   })
-  console.log(isLoggedIn.value)
+  // console.log(isLoggedIn.value)
 })
 </script>
 

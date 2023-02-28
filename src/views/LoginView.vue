@@ -60,7 +60,7 @@ const auth = () => {
 </script>
 <template>
   <Cursor />
-  <Cube class="absolute" />
+  <!-- <Cube class="absolute" /> -->
 
   <div
     :style="{ background: `url(${bgImage})` }"

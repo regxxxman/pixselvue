@@ -5,7 +5,12 @@ import Cursor from '@/components/Cursor.vue'
 import Cube from '@/components/Cube.vue'
 import bgImage from '@/assets/bg.jpg'
 
-import { firebase_database } from '@/firebase'
+import { firebase_database, firebase_storage } from '@/firebase'
+import {
+  ref as storageRef,
+  uploadBytes,
+  getDownloadURL
+} from 'firebase/storage'
 
 import { getAuth } from '@firebase/auth'
 import {
@@ -20,14 +25,20 @@ import SkinView3dVue from '@/components/utils/SkinView3d.vue'
 import HeadDrawVue from '@/components/utils/HeadDraw.vue'
 import Cube2 from '@/components/Cube2.vue'
 
-const uid = ref()
+const uid = ref(null)
 const auth = getAuth()
 
-const nickname = ref()
-const nickname_input = ref()
+const nickname = ref(null)
+const nickname_input = ref(null)
+
+const file_skin = ref(null)
+
+const file_skin_web = ref(null)
 
 onMounted(async () => {
   uid.value = auth.currentUser.uid
+  downloadSkin()
+  console.log('on mounted')
 
   onSnapshot(collection(firebase_database, 'users'), (querySnapshot) => {
     querySnapshot.forEach((doc) => {
@@ -57,6 +68,30 @@ let btnclick = () => {
     nickname_input.value = null
   }
 }
+
+let handleFileUpload = async () => {
+  // debugger;
+  // console.log('selected file', this.$refs.file.files[0])
+  console.log('selected file', file_skin.value.files[0])
+  let fileName = file_skin.value.files[0].name
+
+  if (file_skin.value.files[0] == null) return
+  const imageRef = storageRef(firebase_storage, `skins/${uid.value}`)
+
+  uploadBytes(imageRef, file_skin.value.files[0]).then(() => {
+    console.log('upload complete')
+    downloadSkin()
+  })
+  // Upload to server
+}
+
+let downloadSkin = async () => {
+  getDownloadURL(storageRef(firebase_storage, `skins/${uid.value}`)).then(
+    (url) => {
+      file_skin_web.value = url
+    }
+  )
+}
 </script>
 
 <template>
@@ -68,19 +103,32 @@ let btnclick = () => {
     class="min-h-screen text-white text-center z-10"
   >
     <!-- <Cube class="absolute" /> -->
-    <Cube2 class="absolute" />
+    <!-- <Cube2 class="absolute" /> -->
 
     <div class="flex w-fit m-auto lg:flex-row flex-col justify-center pt-28">
       <div
         class="flex flex-col bg-zinc-700/25 backdrop-blur-xl rounded-md mb-2 mx-0.5"
       >
-        <SkinView3dVue class="m-auto" />
+        <!--         :webskin="{ file_skin_web }"
+          @update:webskin="file_skin_web = $event" -->
+        <!-- <SkinView3dVue :skinUrl="file_skin_web" /> -->
+        <SkinView3dVue :uid="{ uid }" class="m-auto" />
 
-        <div
+        <label
+          for="files"
           class="btn m-2 p-2 text-center text-white bg-cyan-500/25 hover:bg-cyan-500/50 hover:scale-110 ease-out transition backdrop-blur-xl rounded-xl"
         >
           Загрузить
-        </div>
+        </label>
+
+        <input
+          ref="file_skin"
+          @change="handleFileUpload()"
+          id="files"
+          type="file"
+          class="hidden"
+          accept="image/png, image/jpg"
+        />
       </div>
 
       <div
@@ -109,6 +157,10 @@ let btnclick = () => {
         </div>
       </div>
     </div>
+  </div>
+
+  <div class="flex">
+    <img id="myimg" :src="file_skin_web" alt="скин" />
   </div>
 </template>
 

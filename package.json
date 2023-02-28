@@ -11,6 +11,8 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
   },
   "dependencies": {
+    "@splinetool/loader": "^0.9.237",
+    "@splinetool/runtime": "^0.9.237",
     "@types/three": "^0.149.0",
     "chroma-js": "^2.4.2",
     "firebase": "^9.17.1",
@@ -22,7 +24,9 @@
     "three": "0.134",
     "troisjs": "^0.3.4",
     "vue": "^3.2.45",
-    "vue-router": "^4.1.6"
+    "vue-router": "^4.1.6",
+    "vue-spline": "^0.0.4",
+    "vuex": "^4.1.0"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.1.4",

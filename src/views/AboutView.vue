@@ -11,7 +11,7 @@ import Cube2Vue from '@/components/Cube2.vue'
     class="min-h-screen text-white"
   >
     <div>
-      <Cube2Vue class="absolute" />
+      <!-- <Cube2Vue class="absolute" /> -->
     </div>
     <h1 class="pt-16">О нас</h1>
   </div>
