@@ -112,7 +112,7 @@ let downloadSkin = async () => {
         <!--         :webskin="{ file_skin_web }"
           @update:webskin="file_skin_web = $event" -->
         <!-- <SkinView3dVue :skinUrl="file_skin_web" /> -->
-        <SkinView3dVue :uid="{ uid }" class="m-auto" />
+        <SkinView3dVue :srcimg="{ file_skin_web }" class="m-auto" />
 
         <label
           for="files"
@@ -159,9 +159,9 @@ let downloadSkin = async () => {
     </div>
   </div>
 
-  <div class="flex">
+  <!-- <div class="flex">
     <img id="myimg" :src="file_skin_web" alt="скин" />
-  </div>
+  </div> -->
 </template>
 
 <style></style>
