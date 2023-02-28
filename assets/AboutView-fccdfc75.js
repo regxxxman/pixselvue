@@ -1,1 +1,0 @@
-import{o as s,c as a,a as t,b as e,n,u as o,F as c,_ as r,d as _}from"./index-c5dabef2.js";const l=e("div",null,null,-1),i=e("h1",{class:"pt-16"},"О нас",-1),u=[l,i],b={__name:"AboutView",setup(d){return(m,h)=>(s(),a(c,null,[t(r),e("div",{style:n([{background:`url(${o(_)})`},{"background-size":"100% 100%"}]),class:"min-h-screen text-white"},u,4)],64))}};export{b as default};
