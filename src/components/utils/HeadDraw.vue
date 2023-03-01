@@ -5,16 +5,38 @@
 </template>
 
 <script>
-import skinImg from '@/assets/skin/reg_skin2.png'
+import steve from '@/assets/skin/steve.png'
+import { firebase_storage } from '@/firebase'
+import { onMounted, ref } from 'vue'
+
+import { ref as storageRef, getDownloadURL } from 'firebase/storage'
+import { getAuth } from '@firebase/auth'
+const uid = ref(null)
+
+const auth = getAuth()
+const file_skin_web = ref(null)
+
+// onMounted(async () => {})
 
 export default {
+  watch: {},
   methods: {
-    draw() {
+    async downloadSkin() {
+      getDownloadURL(
+        storageRef(firebase_storage, `skins/${auth.currentUser.uid}`)
+      ).then((url) => {
+        file_skin_web.value = url
+        this.draw(url)
+      })
+    },
+    draw(url) {
       let canvas = document.getElementById('head')
       let context = canvas.getContext('2d')
 
       let img = new Image()
-      img.src = skinImg
+
+      !url ? (img.src = steve) : (img.src = file_skin_web.value)
+      console.log('DRAW', file_skin_web.value)
 
       img.onload = () => {
         let scale = img.naturalWidth / 64
@@ -50,6 +72,8 @@ export default {
   },
   mounted() {
     this.draw()
+
+    this.downloadSkin()
   }
 }
 </script>
