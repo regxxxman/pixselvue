@@ -86,11 +86,13 @@ let handleFileUpload = async () => {
 }
 
 let downloadSkin = async () => {
-  getDownloadURL(storageRef(firebase_storage, `skins/${uid.value}`)).then(
-    (url) => {
+  getDownloadURL(storageRef(firebase_storage, `skins/${uid.value}`))
+    .then((url) => {
       file_skin_web.value = url
-    }
-  )
+    })
+    .catch((err) => {
+      file_skin_web.value = null
+    })
 }
 </script>
 

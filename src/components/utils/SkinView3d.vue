@@ -42,7 +42,7 @@ export default {
     }
   },
   mounted() {
-    // this.createSkin()
+    this.createSkin()
   }
 }
 </script>
