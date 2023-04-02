@@ -1,5 +1,3 @@
-https://chat.openai.com/chat#:~:text=%D0%B2%D1%81%D0%B5%20%D0%B2%20.md-,PixelVue,under%20the%20MIT%20License.%20See%20the%20LICENSE%20file%20for%20more%20information.,-%D0%9A%D0%B0%D0%BA%20%D0%BC%D0%BD%D0%B5%20%D1%8D%D1%82%D0%BE
-
 # PixelVue
 
 PixelVue is a Minecraft server mod website. This project provides users with an
