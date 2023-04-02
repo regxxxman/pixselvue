@@ -11,7 +11,7 @@
     <div
       class="flex overflow-hidden flex-col lg:px-0 px-5 lg:flex-row lg:space-x-4 pt-16 text-gray-200 my-auto justify-center"
     >
-      <div class="gsap1 -translate-x-96 opacity-0 basis-1/3">
+      <div class="gsap1 -translate-x-96 opacity-10 basis-1/3">
         <div class="mt-5 p-3 bg-zinc-700/25 backdrop-blur-xl rounded-md">
           <h1 class="font-bold text-2xl">
             <span class="text-red-500">PixselCraft</span> - игровой проект
@@ -50,7 +50,7 @@
       </div>
 
       <div
-        class="basis-1/2 gsap2 translate-x-96 opacity-0 my-auto flex flex-col space-y-3 pt-5 w-full"
+        class="basis-1/2 gsap2 translate-x-96 opacity-10 my-auto flex flex-col space-y-3 pt-5 w-full"
       >
         <h1
           class="font-bold text-2xl bg-zinc-700/25 backdrop-blur-xl rounded-md p-3"
@@ -133,12 +133,12 @@ export default {
   mounted() {
     console.log(auth)
     gsap.to('.gsap1', {
-      delay: 1,
+      delay: 0.1,
       x: 0,
       opacity: 100
     })
     gsap.to('.gsap2', {
-      delay: 1,
+      delay: 0.1,
       x: 0,
       opacity: 100
     })

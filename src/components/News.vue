@@ -24,6 +24,7 @@ import bgImage2 from '@/assets/bg_site2.jpg'
     <div class="grid grid-cols-1 lg:grid-cols-2 flex-col w-10/12 pb-10">
       <div
         v-for="item in items"
+        :key="item.id"
         class="bg-zinc-700/25 backdrop-blur-xl rounded-md p-3 m-1"
       >
         <div class="h-full flex flex-col">
@@ -73,6 +74,7 @@ export default {
       background: null,
       items: [
         {
+          id: 0,
           header: 'Февральский вайп AllTheMods',
           text: 'Доброго времени суток, на сервере AllTheMods прошёл вайп и обновление сборки! Заглядывай в полную новость, чтобы узнать подробнее об глобальном обновлении!',
           img: '',
@@ -80,6 +82,7 @@ export default {
           views: 10
         },
         {
+          id: 1,
           header: 'Февральский вайп OneBlock',
           text: 'Доброго времени суток, на сервере OneBlock прошло глобальное обновление и вайп! Заглядывай в полную новость, чтобы узнать подробнее об глобальном обновлении! Доброго времени суток На сервере OneBlock прошло глобальное обновление и вайп! Заглядывай в полную новость, чтобы узнать подробнее об глобальном обновлении!',
           img: '',
@@ -87,6 +90,7 @@ export default {
           views: 30
         },
         {
+          id: 2,
           header: 'Начало разработки сайта',
           text: 'Проект начал свое развитие и ищет энтузиастов',
           img: '',

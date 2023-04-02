@@ -34,7 +34,7 @@ const register = () => {
 const auth = () => {
   signInWithEmailAndPassword(getAuth(), email.value, password.value)
     .then((data) => {
-      console.log('Success registered')
+      console.log('Success login')
       router.push('/')
     })
     .catch((err) => {
@@ -88,6 +88,7 @@ const auth = () => {
                 class="w-full my-0.5 p-1 rounded-lg indent-1 bg-gray-500/25 focus:bg-gray-500/25 focus:outline focus:outline-2 focus:outline-white"
                 type="text"
                 placeholder="Емайл"
+                @keyup.enter="auth"
               />
             </div>
             <div class="mx-3">
@@ -98,6 +99,7 @@ const auth = () => {
                 class="w-full my-0.5 p-1 rounded-lg indent-1 bg-gray-500/25 focus:outline focus:outline-2 focus:outline-white"
                 type="password"
                 placeholder="••••••••"
+                @keyup.enter="auth"
               />
             </div>
           </div>
@@ -111,6 +113,7 @@ const auth = () => {
                 class="p-1 w-full my-1 rounded-lg indent-1 bg-gray-500/25 focus:outline focus:outline-2 focus:outline-white"
                 type="text"
                 placeholder="Емайл"
+                @keyup.enter="auth"
               />
             </div>
             <div class="mx-3">
@@ -141,6 +144,7 @@ const auth = () => {
                 class="p-1 w-full mr-3 my-1 rounded-lg indent-1 bg-gray-500/25 focus:outline focus:outline-2 focus:outline-white"
                 type="password"
                 placeholder="••••••••"
+                @keyup.enter="auth"
               />
             </div>
           </div>
