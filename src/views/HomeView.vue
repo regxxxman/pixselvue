@@ -20,7 +20,7 @@ import bgImage2 from '@/assets/bg_site2.jpg'
 
 import Cube from '@/components/Cube.vue'
 import Cube2 from '@/components/Cube2.vue'
-import News from '@/components/News.vue'
+import News from '@/components/NewsHomePage.vue'
 import Greetings from '@/components/WalcomeBlock.vue'
 import background3d from '@/components/backgrounds/background3d.vue'
 import background3dthree from '@/components/backgrounds/background3dthree.vue'
