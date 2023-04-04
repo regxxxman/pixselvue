@@ -1,5 +1,6 @@
 <script setup>
 import bgImage2 from '@/assets/bg_site2.jpg'
+import PaginationNews from './PaginationNews.vue'
 // import Cube from '@/components/Cube.vue'
 </script>
 
@@ -21,7 +22,7 @@ import bgImage2 from '@/assets/bg_site2.jpg'
       </h1>
     </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-2 flex-col w-10/12 pb-10">
+    <div class="grid grid-cols-1 lg:grid-cols-2 flex-col w-10/12 pb-3">
       <div
         v-for="item in items"
         :key="item.id"
@@ -57,6 +58,7 @@ import bgImage2 from '@/assets/bg_site2.jpg'
         </div>
       </div>
     </div>
+    <PaginationNews />
   </div>
 </template>
 
@@ -99,7 +101,8 @@ export default {
         }
       ]
     }
-  }
+  },
+  components: { PaginationNews }
 }
 </script>
 

@@ -25,6 +25,7 @@ import Greetings from '@/components/WalcomeBlock.vue'
 import background3d from '@/components/backgrounds/background3d.vue'
 import background3dthree from '@/components/backgrounds/background3dthree.vue'
 import CanvasVue from '@/components/CanvasVue.vue'
+import PaginationNews from '@/components/PaginationNews.vue'
 </script>
 
 <template>
