@@ -121,7 +121,7 @@ watchEffect(() => {
         querySnapshot.forEach((doc) => {
           doc.data().uid == auth.currentUser.uid
             ? (userNickname.value = doc.data().nickname)
-            : (userNickname.value = null)
+            : null
         })
       })
     : null

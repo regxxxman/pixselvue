@@ -144,7 +144,7 @@ const auth = () => {
                 class="p-1 w-full mr-3 my-1 rounded-lg indent-1 bg-gray-500/25 focus:outline focus:outline-2 focus:outline-white"
                 type="password"
                 placeholder="••••••••"
-                @keyup.enter="auth"
+                @keyup.enter="register"
               />
             </div>
           </div>

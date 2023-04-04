@@ -24,6 +24,7 @@ import News from '@/components/News.vue'
 import Greetings from '@/components/WalcomeBlock.vue'
 import background3d from '@/components/backgrounds/background3d.vue'
 import background3dthree from '@/components/backgrounds/background3dthree.vue'
+import CanvasVue from '@/components/CanvasVue.vue'
 </script>
 
 <template>
@@ -35,7 +36,7 @@ import background3dthree from '@/components/backgrounds/background3dthree.vue'
   </div> -->
   <!-- <Cube class="absolute h-screen" /> -->
   <!-- <Cube2 class="absolute h-screen" /> -->
-
+  <CanvasVue class="absolute" />
   <!-- <swiper
     :style="{ background: `url(${bgImage})` }"
     style="background-size: 100% 100%"
@@ -102,7 +103,8 @@ export default {
   data() {
     return {}
   },
-  onMounted() {}
+  onMounted() {},
+  components: { CanvasVue }
 }
 </script>
 
