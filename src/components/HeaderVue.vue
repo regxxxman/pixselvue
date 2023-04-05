@@ -43,7 +43,7 @@
         </div>
         <div
           @click="dropdawm = !dropdawm"
-          v-if="isLoggedIn"
+          v-show="isLoggedIn"
           class="m-auto sm:text-base text-xl mx-1 sm:mx-3 text-white"
         >
           <div class="">
@@ -58,7 +58,7 @@
             </div>
             <Transition name="dropdawn-inner-animate">
               <div
-                v-if="dropdawm"
+                v-show="dropdawm"
                 class="dropdawn-inner sm:absolute static rounded w-32 mt-1 bg-gray-200/10 px-3 py-1"
               >
                 <ul class="mt-1">

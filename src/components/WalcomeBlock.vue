@@ -25,7 +25,7 @@
           </p>
         </div>
 
-        <div v-if="!isLoggedIn" class="flex justify-center pt-2">
+        <div v-show="!isLoggedIn" class="flex justify-center pt-2">
           <router-link
             to="/login"
             class="btn w-full text-center text-white bg-cyan-400/40 hover:bg-cyan-500/50 hover:scale-110 ease-out transition backdrop-blur-xl p-2 mr-1 rounded-xl"
@@ -39,7 +39,7 @@
           </a>
         </div>
 
-        <div v-else class="flex justify-center pt-2">
+        <div v-show="isLoggedIn" class="flex justify-center pt-2">
           <router-link
             to="/play"
             class="btn w-full text-center text-white bg-cyan-400/40 hover:bg-cyan-500/50 hover:scale-110 ease-out transition backdrop-blur-xl p-2 rounded-xl"

@@ -1,5 +1,5 @@
 <template>
-  <nav aria-label="Page navigation example">
+  <nav aria-label="Page navigation example" class="backdrop-blur-sm">
     <ul class="inline-flex items-center -space-x-px">
       <li>
         <a

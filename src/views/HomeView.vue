@@ -37,7 +37,7 @@ import PaginationNews from '@/components/PaginationNews.vue'
   </div> -->
   <!-- <Cube class="absolute h-screen" /> -->
   <!-- <Cube2 class="absolute h-screen" /> -->
-  <CanvasVue class="absolute" />
+  <CanvasVue class="absolute w-full" />
   <!-- <swiper
     :style="{ background: `url(${bgImage})` }"
     style="background-size: 100% 100%"
