@@ -106,7 +106,7 @@ import { firebase_app, firebase_database } from '@/firebase/'
 import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth'
 import { collection, onSnapshot } from 'firebase/firestore'
 
-import HamburgerManuVue from '../components/HamburgerManu.vue'
+import HamburgerManuVue from './icons/IconHamburger.vue'
 import router from '@/router'
 import HeadDrawVue from './utils/HeadDraw.vue'
 
@@ -171,34 +171,35 @@ export default {
     },
     handelMenuButton() {
       this.openMenu = !this.openMenu
+    },
+    bounce() {
+      let lastScroll = 0
+      const defaultOffset = 200
+      const className = '-translate-y-16'
+      const header = document.querySelector('.header')
+      const scrollPosition = () =>
+        window.pageYOffset || document.documentElement.scrollTop
+      const containHide = () => header.classList.contains(className)
+      window.addEventListener('scroll', () => {
+        if (
+          scrollPosition() > lastScroll &&
+          !containHide() &&
+          scrollPosition() > defaultOffset
+        ) {
+          //scroll down
+          header.classList.add(className)
+        } else if (scrollPosition() < lastScroll && containHide()) {
+          //scroll up
+          header.classList.remove(className)
+        }
+        lastScroll = scrollPosition()
+      })
+      window.addEventListener('resize', () => {
+        window.innerWidth >= 640 ? (this.openMenu = false) : null
+      })
     }
   },
-  mounted() {
-    let lastScroll = 0
-    const defaultOffset = 200
-    const className = '-translate-y-16'
-    const header = document.querySelector('.header')
-    const scrollPosition = () =>
-      window.pageYOffset || document.documentElement.scrollTop
-    const containHide = () => header.classList.contains(className)
-    window.addEventListener('scroll', () => {
-      if (
-        scrollPosition() > lastScroll &&
-        !containHide() &&
-        scrollPosition() > defaultOffset
-      ) {
-        //scroll down
-        header.classList.add(className)
-      } else if (scrollPosition() < lastScroll && containHide()) {
-        //scroll up
-        header.classList.remove(className)
-      }
-      lastScroll = scrollPosition()
-    })
-    window.addEventListener('resize', () => {
-      window.innerWidth >= 640 ? (this.openMenu = false) : null
-    })
-  },
+  mounted() {},
   components: { HamburgerManuVue, HeadDrawVue }
 }
 </script>

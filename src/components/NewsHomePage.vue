@@ -22,11 +22,11 @@ import PaginationNews from './PaginationNews.vue'
       </h1>
     </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-2 flex-col w-10/12 pb-3">
+    <div class="container grid grid-cols-1 lg:grid-cols-2 flex-col pb-3">
       <div
         v-for="item in items"
         :key="item.id"
-        class="bg-zinc-700/25 backdrop-blur-xl rounded-md p-3 m-1"
+        class="bg-zinc-700/25 backdrop-blur-xl rounded-md p-3 my-1"
       >
         <div class="h-full flex flex-col">
           <h1 class="font-bold text-2xl">{{ item.header }}</h1>

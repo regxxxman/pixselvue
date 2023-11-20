@@ -9,16 +9,16 @@
     <!-- <CanvasVue class=" absolute w-full" /> -->
 
     <div
-      class="flex overflow-hidden flex-col lg:px-0 px-5 lg:flex-row lg:space-x-4 pt-16 text-gray-200 my-auto justify-center"
+      class="container mx-auto flex flex-col lg:flex-row overflow-hidden lg:space-x-4 pt-16 text-gray-200 my-auto justify-center"
     >
-      <div class="gsap1 -translate-x-96 opacity-10 basis-1/3">
+      <div class="basis-1/3">
         <div class="mt-5 p-3 bg-zinc-700/25 backdrop-blur-xl rounded-md">
           <h1 class="font-bold text-2xl">
             <span class="text-red-500">PixselCraft</span> - игровой проект
             Minecraft.
           </h1>
           <!-- <img class="rounded" src="@/assets/bg_news.png" alt="" /> -->
-          <p class="text-gray-300 pt-1">
+          <p class="text-gray-300 pt-1 text-animated">
             Каждый игрок ищет уютную атмосферу и интересный геймплей, отзывчивую
             модерацию и баланс на сервере. <br />
             Всё это есть на проекте нового поколения - PixselCraft!
@@ -49,9 +49,7 @@
         </div>
       </div>
 
-      <div
-        class="basis-1/2 gsap2 translate-x-96 opacity-10 my-auto flex flex-col space-y-3 pt-5 w-full"
-      >
+      <div class="basis-1/2 my-auto flex flex-col space-y-3 pt-5 w-full">
         <h1
           class="font-bold text-2xl bg-zinc-700/25 backdrop-blur-xl rounded-md p-3"
         >
@@ -131,17 +129,17 @@ export default {
     }
   },
   mounted() {
-    console.log(auth)
-    gsap.to('.gsap1', {
-      delay: 0.1,
-      x: 0,
-      opacity: 100
-    })
-    gsap.to('.gsap2', {
-      delay: 0.1,
-      x: 0,
-      opacity: 100
-    })
+    // console.log(auth)
+    // gsap.to('.gsap1', {
+    //   delay: 0.1,
+    //   x: 0,
+    //   opacity: 100
+    // })
+    // gsap.to('.gsap2', {
+    //   delay: 0.1,
+    //   x: 0,
+    //   opacity: 100
+    // })
   }
 }
 </script>
