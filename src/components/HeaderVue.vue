@@ -7,9 +7,9 @@
     }"
     class="header fixed w-full bg-zinc-900/25 rounded-b-2xl z-20 h-16"
   >
-    <div class="flex h-full">
+    <div class="flex h-full container mx-auto">
       <div
-        class="flex-1 my-4 ml-3 z-30 hover:scale-105 transition ease-in-out sm:text-3xl text-2xl sm:py-0 py-1 pl-5 animate-text bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text text-transparent font-black"
+        class="flex-1 my-4 ml-3 z-30 hover:scale-105 transition ease-in-out sm:text-3xl text-2xl sm:py-0 py-1 animate-text bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text text-transparent font-black"
       >
         <router-link to="/">PixselCraft</router-link>
       </div>
@@ -22,19 +22,21 @@
         >
           <ul class="flex sm:flex-row flex-col">
             <li
-              :class="{ 'text-gray-300': path == '/' }"
+              :class="{
+                'text-gray-300': path === '/'
+              }"
               class="py-0 lg:px-9 sm:px-3 px-1 hover:text-gray-300"
             >
               <router-link to="/">Главная</router-link>
             </li>
             <li
-              :class="{ 'text-gray-300': path == '/about' }"
+              :class="{ 'text-gray-300': path === '/about' }"
               class="lg:px-9 sm:px-3 px-1 sm:my-0 my-0.5 hover:text-gray-300"
             >
               <router-link to="/about">О нас</router-link>
             </li>
             <li
-              :class="{ 'text-gray-300': path == '/play' }"
+              :class="{ 'text-gray-300': path === '/play' }"
               class="lg:px-9 sm:px-3 px-1 hover:text-gray-300"
             >
               <router-link to="/play">Начать играть</router-link>
@@ -79,15 +81,16 @@
             to="/login?q=register"
             class="btn text-cyan-500 bg-cyan-900/30 hover:bg-cyan-900/50 hover:scale-110 ease-out transition p-2 px-5 mx-1 rounded-xl"
           >
-            Регистрация</router-link
-          >
+            Регистрация
+          </router-link>
         </div>
         <div v-else class="flex sm:p-0 pt-2">
           <a
             @click="handleSingOut"
             class="btn text-cyan-500 bg-cyan-900/30 hover:bg-cyan-900/50 hover:scale-110 ease-out transition p-2 px-5 mx-1 rounded-xl"
-            >Выйти</a
           >
+            Выйти
+          </a>
         </div>
       </div>
       <div
@@ -116,10 +119,10 @@ const userNickname = ref()
 const auth = getAuth()
 
 watchEffect(() => {
-  isLoggedIn.value == true
+  isLoggedIn.value === true
     ? onSnapshot(collection(firebase_database, 'users'), (querySnapshot) => {
         querySnapshot.forEach((doc) => {
-          doc.data().uid == auth.currentUser.uid
+          doc.data().uid === auth.currentUser.uid
             ? (userNickname.value = doc.data().nickname)
             : null
         })

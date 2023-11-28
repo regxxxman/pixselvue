@@ -21,7 +21,7 @@ import bgImage2 from '@/assets/bg_site2.jpg'
 import Cube from '@/components/Cube.vue'
 import Cube2 from '@/components/Cube2.vue'
 import News from '@/components/NewsHomePage.vue'
-import Greetings from '@/components/WalcomeBlock.vue'
+import WelcomeBlock from '@/components/WalcomeBlock.vue'
 import background3d from '@/components/backgrounds/background3d.vue'
 import background3dthree from '@/components/backgrounds/background3dthree.vue'
 import CanvasVue from '@/components/CanvasVue.vue'
@@ -37,7 +37,7 @@ import PaginationNews from '@/components/PaginationNews.vue'
   </div> -->
   <!-- <Cube class="absolute h-screen" /> -->
   <!-- <Cube2 class="absolute h-screen" /> -->
-  <CanvasVue class="absolute w-full" />
+  <!-- <CanvasVue class="absolute w-full" /> -->
   <!-- <swiper
     :style="{ background: `url(${bgImage})` }"
     style="background-size: 100% 100%"
@@ -59,7 +59,7 @@ import PaginationNews from '@/components/PaginationNews.vue'
     </swiper-slide>
   </swiper> -->
 
-  <Greetings />
+  <WelcomeBlock />
 
   <!-- <Cube class="absolute" /> -->
 

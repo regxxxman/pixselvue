@@ -12,7 +12,9 @@ import PaginationNews from './PaginationNews.vue'
     style="background-size: 100% 100%"
     class="text-white min-h-screen flex flex-col items-center overflow-hidden"
   >
-    <div class="bg-zinc-700/25 backdrop-blur-xl rounded-2xl px-4 py-2 m-3">
+    <div
+      class="bg-zinc-700/25 backdrop-blur-xl border-2 border-gray-300/50 rounded-2xl px-4 py-2 m-3"
+    >
       <h1>
         <span
           class="font-bold text-xl animate-text bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text text-transparent"
@@ -26,7 +28,7 @@ import PaginationNews from './PaginationNews.vue'
       <div
         v-for="item in items"
         :key="item.id"
-        class="bg-zinc-700/25 backdrop-blur-xl rounded-md p-3 my-1"
+        class="bg-zinc-700/25 backdrop-blur-xl rounded-md border-2 border-gray-300/20 p-3 sm:m-0.5 my-1"
       >
         <div class="h-full flex flex-col">
           <h1 class="font-bold text-2xl">{{ item.header }}</h1>
@@ -49,11 +51,12 @@ import PaginationNews from './PaginationNews.vue'
                 <p>{{ item.views }}</p>
               </div>
             </div>
-            <a
+            <RouterLink
+              to="/news"
               class="py-2 lg:px-0 px-2 btn w-full text-center text-white bg-cyan-400/40 hover:bg-cyan-500/50 hover:scale-105 ease-out transition backdrop-blur-xl rounded-xl"
             >
               Подробнее
-            </a>
+            </RouterLink>
           </div>
         </div>
       </div>
