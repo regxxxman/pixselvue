@@ -15,7 +15,7 @@
       muted
       loop
     >
-      <source src="dist/assets/minecraft_shaders.mp4" type="video/mp4" />
+      <source src="../assets/minecraft_shaders.mp4" type="video/mp4" />
     </video>
     <div
       class="container mx-auto flex flex-col lg:flex-row lg:space-x-4 pt-16 text-gray-200 my-auto justify-center"
@@ -27,7 +27,7 @@
           <h1 class="font-bold text-2xl">
             <img
               class="object-cover h-16 fixed -left-8 -top-10"
-              src="dist/assets/block_tnt.gif"
+              src="../assets/block_tnt.gif"
             />
             <span class="text-red-500">PixselCraft</span> - игровой проект
             Minecraft.
