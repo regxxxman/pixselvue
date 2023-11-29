@@ -1,11 +1,9 @@
 <template>
-  <div
-    :class="{
-      '1backdrop-blur-xl-before': !openMenu
-    }"
-    class="header fixed w-full z-20 h-16"
-  >
-    <div class="flex justify-between h-full rounded-b-2xl backdrop-blur bg-zinc-300/25 container mx-auto border-2 border-gray-300/10">
+  <div class="header fixed w-full z-20 h-16">
+    <div
+      :class="{ 'backdrop-blur-xl border-2': !openMenu }"
+      class="flex justify-between h-full rounded-b-2xl bg-zinc-300/25 container mx-auto border-gray-300/10"
+    >
       <div
         class="flex my-4 ml-3 z-30 hover:scale-105 transition ease-in-out sm:text-3xl text-2xl sm:py-0 py-1 animate-text bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text text-transparent font-black"
       >
@@ -16,7 +14,7 @@
         class="sm:flex justify-center sm:justify-end flex-1 ease-linear px-7 sm:px-0 -z-10 sm:z-50 sm:my-3 my-0 mr-3 sm:pt-0 sm:flex-row flex-col absolute sm:static sm:h-fit sm:w-fit h-screen w-screen"
       >
         <div
-          class="flex justify-center flex-1 pt-16 sm:py-2 text-gray-400 lg:block sm:hidden text-3xl sm:text-base"
+          class="flex flex-1 pt-16 sm:py-2 text-gray-400 lg:block sm:hidden text-3xl sm:text-base"
         >
           <ul class="flex justify-center sm:flex-row flex-col">
             <li
@@ -62,7 +60,9 @@
                 class="dropdawn-inner sm:absolute static rounded w-32 mt-1 bg-gray-200/10 px-3 py-1"
               >
                 <ul class="mt-1">
-                  <li><router-link to="/profile">профиль</router-link></li>
+                  <li>
+                    <router-link to="/profile">профиль</router-link>
+                  </li>
                 </ul>
               </div>
             </Transition>
@@ -208,7 +208,8 @@ export default {
 <style lang="sass">
 @import "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
 .header
-    transition: .3s cubic-bezier(.75, -1.27,.3,2.33) transform
+  transition: .3s cubic-bezier(.75, -1.27, .3, 2.33) transform
+
 .backdrop-blur-xl-before::before
   content: ''
   position: absolute
@@ -216,6 +217,7 @@ export default {
   height: 100%
   -webkit-backdrop-filter: blur(8px)
   backdrop-filter: blur(8px)
+
 .dropdawn-inner
   content: ''
   position: absolute
@@ -224,6 +226,7 @@ export default {
 
 .dropdawn-inner-animate-enter-active
   animation: bounce-in 0.5s
+
 .dropdawn-inner-animate-leave-active
   animation: bounce-in 0.5s reverse
 
