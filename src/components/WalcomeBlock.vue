@@ -4,11 +4,12 @@
   <div
     :style="{ background: `url(${bgImage})` }"
     style="background-size: 100% 100%"
-    class="flex flex-col min-h-screen"
+    class="flex flex-col min-h-screen "
   >
     <!-- <CanvasVue class=" absolute w-full" /> -->
+
     <video
-      class="absolute w-screen blur-sm xl:block hidden"
+      class="absolute w-screen blur-sm xl:block hidden opacity-70"
       width="1920"
       height="1080"
       autoplay
@@ -17,6 +18,8 @@
     >
       <source src="../assets/minecraft_shaders.mp4" type="video/mp4" />
     </video>
+
+   
     <div
       class="container mx-auto flex flex-col lg:flex-row lg:space-x-4 pt-16 text-gray-200 my-auto justify-center"
     >
@@ -65,9 +68,15 @@
       </div>
 
       <div class="basis-1/2 my-auto flex flex-col space-y-3 pt-5 w-full">
+
+
         <h1
           class="font-bold text-2xl bg-zinc-700/25 backdrop-blur-xl rounded-md p-3 border-2 border-gray-300/20"
         >
+          <img
+            class="object-cover h-16 fixed -left-8 -top-10"
+            src="../assets/blocks/animated/diamond.gif"
+          />
           <span class="text-orange-500">Онлайн</span> на наших серверах
           <p class="text-base text-left font-light">
             У наших серверов разные наборы модов и востребованных у игроков

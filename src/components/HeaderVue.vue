@@ -1,26 +1,24 @@
 <template>
   <div
     :class="{
-      'backdrop-blur-xl-before': !openMenu
-      // 'h-16': !dropdawm,
-      // 'h-28': dropdawm
+      '1backdrop-blur-xl-before': !openMenu
     }"
-    class="header fixed w-full bg-zinc-900/25 rounded-b-2xl z-20 h-16"
+    class="header fixed w-full z-20 h-16"
   >
-    <div class="flex h-full container mx-auto">
+    <div class="flex justify-between h-full rounded-b-2xl backdrop-blur bg-zinc-300/25 container mx-auto border-2 border-gray-300/10">
       <div
-        class="flex-1 my-4 ml-3 z-30 hover:scale-105 transition ease-in-out sm:text-3xl text-2xl sm:py-0 py-1 animate-text bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text text-transparent font-black"
+        class="flex my-4 ml-3 z-30 hover:scale-105 transition ease-in-out sm:text-3xl text-2xl sm:py-0 py-1 animate-text bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text text-transparent font-black"
       >
         <router-link to="/">PixselCraft</router-link>
       </div>
       <div
         :class="{ hidden: !openMenu, 'backdrop-blur-xl': openMenu }"
-        class="sm:flex ease-linear px-7 sm:px-0 -z-10 sm:z-50 sm:my-3 my-0 mr-3 sm:pt-0 sm:flex-row flex-col absolute sm:static sm:h-fit sm:w-fit h-screen w-screen"
+        class="sm:flex justify-center sm:justify-end flex-1 ease-linear px-7 sm:px-0 -z-10 sm:z-50 sm:my-3 my-0 mr-3 sm:pt-0 sm:flex-row flex-col absolute sm:static sm:h-fit sm:w-fit h-screen w-screen"
       >
         <div
-          class="list pt-16 sm:py-2 text-gray-400 lg:block sm:hidden text-3xl sm:text-base"
+          class="flex justify-center flex-1 pt-16 sm:py-2 text-gray-400 lg:block sm:hidden text-3xl sm:text-base"
         >
-          <ul class="flex sm:flex-row flex-col">
+          <ul class="flex justify-center sm:flex-row flex-col">
             <li
               :class="{
                 'text-gray-300': path === '/'
@@ -46,7 +44,7 @@
         <div
           @click="dropdawm = !dropdawm"
           v-show="isLoggedIn"
-          class="m-auto sm:text-base text-xl mx-1 sm:mx-3 text-white"
+          class="m-auto sm:text-base text-xl mx-1 sm:mx-3 text-white justify-end"
         >
           <div class="">
             <div class="flex p-2 rounded bg-gray-200/10 dropdawn">
