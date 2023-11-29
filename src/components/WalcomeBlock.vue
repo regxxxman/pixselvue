@@ -36,7 +36,11 @@
             <span class="text-red-500">PixselCraft</span> - игровой проект
             Minecraft.
           </h1>
-          <!-- <img class="rounded" src="@/assets/bg_news.png" alt="" /> -->
+
+          <video class="rounded" autoplay muted loop>
+            <source src="../assets/minecraft_shaders_2.mp4" type="video/mp4" />
+          </video>
+          <!--          <img class="rounded" src="@/assets/bg_news.png" alt="" />-->
           <p class="text-gray-300 pt-1 text-animated" id="gsap_text">
             Каждый игрок ищет уютную атмосферу и интересный геймплей, отзывчивую
             модерацию и баланс на сервере. <br />
