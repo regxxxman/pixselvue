@@ -1,14 +1,14 @@
 <template>
   <!-- :style="{ background: `url(${bgImage})` }" -->
 
-  <div
-    :style="{ background: `url(${bgImage})` }"
-    style="background-size: 100% 100%"
-    class="flex flex-col min-h-screen"
-  >
+  <div class="flex flex-col min-h-screen bg-zinc-900">
     <!-- <CanvasVue class=" absolute w-full" /> -->
 
-    <div class="absolute overflow-hidden">
+    <div
+      :style="{ background: `url(${bgImage})` }"
+      style="background-size: 100% 100%"
+      class="absolute overflow-hidden"
+    >
       <video
         class="relative w-screen scale-105 blur-sm opacity-70"
         width="1920"
@@ -65,7 +65,7 @@
         <div v-show="isLoggedIn" class="flex justify-center pt-2">
           <router-link
             to="/play"
-            class="btn w-full text-center text-white bg-cyan-400/25 hover:bg-cyan-500/50 hover:scale-105 ease-out transition backdrop-blur-xl p-2 rounded-xl"
+            class="btn w-full text-center border-2 border-gray-300/50 text-white animate-text bg-gradient-to-r from-teal-500/70 via-purple-500/70 to-orange-500/70 hover:scale-105 ease-out transition backdrop-blur-xl p-2 rounded-xl"
           >
             Начать играть
           </router-link>
