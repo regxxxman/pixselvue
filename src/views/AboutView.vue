@@ -4,7 +4,7 @@ import bgImage from '@/assets/bg.jpg'
 import Cube2Vue from '@/components/Cube2.vue'
 </script>
 <template>
-  <Cursor />
+  <!--  <Cursor />-->
   <div
     :style="{ background: `url(${bgImage})` }"
     style="background-size: 100% 100%"

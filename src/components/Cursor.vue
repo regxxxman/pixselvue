@@ -90,7 +90,7 @@ let start = () => {
 }
 
 onMounted(() => {
-  if ('ontouchstart' in document.documentElement == false) {
+  if (!('ontouchstart' in document.documentElement)) {
     start()
   } else {
     cursor.classList.add('hidden')
@@ -106,57 +106,60 @@ onMounted(() => {
 
 <style lang="sass">
 *
-    cursor: none
+  //cursor: none
+
 #cursor, #aura
-    position: absolute
-    border-radius: 100%
-    transition: .5s cubic-bezier(.75, -1.27,.3,2.33) transform, .4s cubic-bezier(.75, -1.27,.3,2.33) opacity
-    user-select: none
-    pointer-events: none
-    z-index: 10000
+  position: absolute
+  border-radius: 100%
+  transition: .5s cubic-bezier(.75, -1.27, .3, 2.33) transform, .4s cubic-bezier(.75, -1.27, .3, 2.33) opacity
+  user-select: none
+  pointer-events: none
+  z-index: 10000
 
 #cursor
-    width: 8px
-    height: 8px
-    background-color: rgba(0,255,255,.5)
-    z-index: 10001
-    transform: scale(1)
-    &.active
-        transform: scale(0)
-        opacity: 0
-    &.text
-        height: 20px
-        border-radius: .5rem
-        transform: translate(-3px,-10px)
-        transition: .5s ease-in-out transform
+  width: 8px
+  height: 8px
+  background-color: rgba(0, 255, 255, .5)
+  z-index: 10001
+  transform: scale(1)
+
+  &.active
+    transform: scale(0)
+    opacity: 0
+
+  &.text
+    height: 20px
+    border-radius: .5rem
+    transform: translate(-3px, -10px)
+    transition: .5s ease-in-out transform
+
 #aura
-    width: 46px
-    height: 46px
-    border: 1px solid rgba(#fff,.2)
-    background-color: rgba(#fff,.027)
-    transform: translate(5px,5px),
-    backdrop-filter: blur(.2rem)
-    transition: .3s cubic-bezier(.75, -1.27,.3,2.33) backdrop-filter, .3s cubic-bezier(.75, -1.27,.3,2.33) transform
-    &.active
-        border: 1.2px solid rgba(#fff, .33)
-        transform: scale(1.3)
-        backdrop-filter: blur(0px)
-    &.text
-        // backdrop-filter: blur(0px)
-        // border: 1px solid rgba(#fff,.2)
-        // border-radius: .5rem
-        // height: 30px
-        // width: 92px
-        // transform: translate(-20px,15px)
-        backdrop-filter: blur(0px)
-        transform: scale(.1)
+  width: 46px
+  height: 46px
+  border: 1px solid rgba(#fff, .2)
+  background-color: rgba(#fff, .027)
+  transform: translate(5px, 5px),
+  backdrop-filter: blur(.2rem)
+  transition: .3s cubic-bezier(.75, -1.27, .3, 2.33) backdrop-filter, .3s cubic-bezier(.75, -1.27, .3, 2.33) transform
 
+  &.active
+    border: 1.2px solid rgba(#fff, .33)
+    transform: scale(1.3)
+    backdrop-filter: blur(0px)
 
-
+  &.text
+    // backdrop-filter: blur(0px)
+    // border: 1px solid rgba(#fff,.2)
+    // border-radius: .5rem
+    // height: 30px
+    // width: 92px
+    // transform: translate(-20px,15px)
+    backdrop-filter: blur(0px)
+    transform: scale(.1)
 
 
 #aura.hiddenCursor,
 #cursor.hiddenCursor
-    opacity: 0
-    transform: scale(.1)
+  opacity: 0
+  transform: scale(.1)
 </style>

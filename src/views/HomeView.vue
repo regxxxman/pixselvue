@@ -29,7 +29,7 @@ import PaginationNews from '@/components/PaginationNews.vue'
 </script>
 
 <template>
-  <Cursor />
+  <!--  <Cursor />-->
 
   <!-- <background3dthree /> -->
   <!-- <div class="overflow-hidden w-full h-full absolute">

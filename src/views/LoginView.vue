@@ -189,7 +189,7 @@ export default {
   },
   watch: {
     $route() {
-      this.$route.query.q == 'register'
+      this.$route.query.q === 'register'
         ? (this.isLogin = false)
         : (this.isLogin = true)
       console.log(this.$route.query.q)
